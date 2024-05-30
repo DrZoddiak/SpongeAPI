@@ -55,4 +55,5 @@ public interface Portal {
      * @return The destination or {@link Optional#empty()} if unknown
      */
     Optional<ServerLocation> destination();
+
 }

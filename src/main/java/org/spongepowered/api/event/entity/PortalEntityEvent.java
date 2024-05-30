@@ -30,12 +30,13 @@ import org.spongepowered.api.event.Event;
 import org.spongepowered.api.util.annotation.eventgen.AbsoluteSortPosition;
 import org.spongepowered.api.util.annotation.eventgen.NoFactoryMethod;
 import org.spongepowered.api.world.portal.Portal;
+import org.spongepowered.api.world.portal.PortalType;
 import org.spongepowered.math.vector.Vector3d;
 
 import java.util.Optional;
 
 /**
- * Called when an {@link Entity} is using a {@link Portal}.
+ * Called when an {@link Entity} is using a {@link PortalType portal}.
  */
 @NoFactoryMethod
 public interface PortalEntityEvent extends Event {
@@ -48,7 +49,7 @@ public interface PortalEntityEvent extends Event {
     @AbsoluteSortPosition(1)
     Entity entity();
 
-    Portal portal();
+    PortalType portal();
 
     /**
      * Called when entering a portal.
@@ -72,7 +73,7 @@ public interface PortalEntityEvent extends Event {
     interface Pre extends PortalEntityEvent, Cancellable {
         // TODO for vanilla we could allow changing the Portal
         // TODO expose vanilla portals + sponge variants without block generation?
-        void setPortal(Portal portal);
+        void setPortal(PortalType portal);
     }
 
     // DimensionTransition was obtained, portal blocks are generated
