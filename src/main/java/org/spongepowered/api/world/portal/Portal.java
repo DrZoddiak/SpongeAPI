@@ -31,16 +31,17 @@ import java.util.Optional;
 
 /**
  * Represents a portal, such as a {@link PortalTypes#NETHER nether portal}.
+ * TODO remove?
  */
 @DoNotStore
 public interface Portal {
 
     /**
-     * The {@link PortalType}.
+     * The {@link PortalLogic}.
      *
      * @return The type
      */
-    PortalType type();
+    PortalLogic type();
 
     /**
      * The {@link ServerLocation location} this portal is at.

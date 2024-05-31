@@ -29,14 +29,13 @@ import org.spongepowered.api.event.Cancellable;
 import org.spongepowered.api.event.Event;
 import org.spongepowered.api.util.annotation.eventgen.AbsoluteSortPosition;
 import org.spongepowered.api.util.annotation.eventgen.NoFactoryMethod;
-import org.spongepowered.api.world.portal.Portal;
-import org.spongepowered.api.world.portal.PortalType;
+import org.spongepowered.api.world.portal.PortalLogic;
 import org.spongepowered.math.vector.Vector3d;
 
 import java.util.Optional;
 
 /**
- * Called when an {@link Entity} is using a {@link PortalType portal}.
+ * Called when an {@link Entity} is using a {@link PortalLogic portal}.
  */
 @NoFactoryMethod
 public interface PortalEntityEvent extends Event {
@@ -49,7 +48,7 @@ public interface PortalEntityEvent extends Event {
     @AbsoluteSortPosition(1)
     Entity entity();
 
-    PortalType portal();
+    PortalLogic portal();
 
     /**
      * Called when entering a portal.
@@ -64,7 +63,7 @@ public interface PortalEntityEvent extends Event {
     /**
      * Called before calculating and generating the portal exit.
      * Canceling resets the portal transition time
-     * Setting a custom portal can change the teleport behaviour. TODO {@link Portal}
+     * Setting custom portal logic can change the teleport behaviour.
      * TODO {@link org.spongepowered.api.block.BlockTypes#NETHER_PORTAL} should be a portal instance
      * TODO sponge provided Portal instances for vanilla
      * TODO portal builder? for custom plugin code
@@ -73,13 +72,13 @@ public interface PortalEntityEvent extends Event {
     interface Pre extends PortalEntityEvent, Cancellable {
         // TODO for vanilla we could allow changing the Portal
         // TODO expose vanilla portals + sponge variants without block generation?
-        void setPortal(PortalType portal);
+        void setPortal(PortalLogic portal);
     }
 
     // DimensionTransition was obtained, portal blocks are generated
 
     /**
-     * Called after a {@link Portal} calculated and generated the portal exit.
+     * Called after a {@link PortalLogic} calculated and found or generated the portal exit.
      * Note that {@link ChangeEntityWorldEvent} still fire after this.
      */
     interface Teleport extends PortalEntityEvent, ChangeEntityWorldEvent.Reposition, RotateEntityEvent {

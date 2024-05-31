@@ -267,8 +267,7 @@ import org.spongepowered.api.world.generation.carver.CarvingStep;
 import org.spongepowered.api.world.generation.config.WorldGenerationConfig;
 import org.spongepowered.api.world.generation.feature.DecorationStep;
 import org.spongepowered.api.world.generation.feature.PlacedFeature;
-import org.spongepowered.api.world.portal.PortalType;
-import org.spongepowered.api.world.portal.PortalTypes;
+import org.spongepowered.api.world.portal.PortalLogic;
 import org.spongepowered.api.world.server.ServerLocation;
 import org.spongepowered.api.world.server.ServerWorld;
 import org.spongepowered.api.world.server.WorldTemplate;
@@ -2382,7 +2381,7 @@ public final class Keys {
      * Whether a {@link WorldType} is considered natural.
      * <p>Natural worlds allow
      * sleeping in beds and setting the respawn point,
-     * {@link PortalTypes#NETHER} portals to spawn {@link ZombifiedPiglin} and
+     * {@link BlockTypes#NETHER_PORTAL} portals to spawn {@link ZombifiedPiglin} and
      * {@link ItemTypes#COMPASS} to work</p>
      * Readonly
      */
@@ -3363,7 +3362,7 @@ public final class Keys {
 
     /**
      * The logical height of a {@link WorldType}
-     * <p>Restricts teleportation via {@link ItemTypes#CHORUS_FRUIT} or {@link PortalType portal types}
+     * <p>Restricts teleportation via {@link ItemTypes#CHORUS_FRUIT} or {@link PortalLogic portal types}
      * or portal generation
      * to below the logical height.</p>
      * Readonly

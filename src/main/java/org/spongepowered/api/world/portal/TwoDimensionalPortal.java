@@ -29,6 +29,7 @@ import org.spongepowered.api.world.server.ServerLocation;
 
 /**
  * Represents a {@link Portal} with a known shape.
+ * TODO remove?
  */
 @DoNotStore
 public interface TwoDimensionalPortal extends Portal {
