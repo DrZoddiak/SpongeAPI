@@ -280,6 +280,7 @@ import org.spongepowered.api.world.weather.WeatherType;
 import org.spongepowered.api.world.weather.WeatherTypes;
 import org.spongepowered.math.vector.Vector2i;
 import org.spongepowered.math.vector.Vector3d;
+import org.spongepowered.math.vector.Vector3f;
 import org.spongepowered.math.vector.Vector3i;
 import org.spongepowered.plugin.PluginContainer;
 
@@ -457,8 +458,8 @@ public final class Keys {
     /**
      * The width of the physical form of an {@link Entity}.
      *
-     * <p>Together with {@link #HEIGHT} and {@link #SCALE} this defines
-     * the size of an {@link Entity}.</p>
+     * <p>Together with {@link #HEIGHT} this defines
+     * the maximum size of an {@link Entity}.</p>
      * Readonly
      */
     public static final Key<Value<Double>> BASE_SIZE = Keys.key(ResourceKey.sponge("base_size"), Double.class);
@@ -1361,8 +1362,8 @@ public final class Keys {
     /**
      * The height of the physical form of an {@link Entity}.
      *
-     * <p>Together with {@link #BASE_SIZE} and {@link #SCALE} this defines the size of an
-     * {@link Entity}.</p>
+     * <p>Together with {@link #BASE_SIZE} this defines the
+     * maximum height of an {@link Entity}.</p>
      * Readonly
      */
     public static final Key<Value<Double>> HEIGHT = Keys.key(ResourceKey.sponge("height"), Double.class);
@@ -2768,9 +2769,9 @@ public final class Keys {
     /**
      * The "scale" for the size of an {@link Entity}.
      *
-     * <p>Together with {@link #BASE_SIZE} and {@link #HEIGHT} this defines the size of an {@link Entity}.</p>
+     * <p>this defines the size of an {@link Entity}.</p>
      */
-    public static final Key<Value<Double>> SCALE = Keys.key(ResourceKey.sponge("scale"), Double.class);
+    public static final Key<Value<Vector3f>> SCALE = Keys.key(ResourceKey.sponge("scale"), Vector3f.class);
 
     /**
      * The scoreboard tags applied to an {@link Entity}.
